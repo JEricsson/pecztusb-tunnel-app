@@ -1,0 +1,26 @@
+# Arquivos e pastas gerados pelo PyInstaller
+/dist/
+/build/
+*.spec
+
+# Dependências do Node.js (WebApp)
+/node_modules/
+
+# Arquivos compilados e de sistema
+*.exe
+*.log
+*.zip
+*.msi
+*.pfx
+*.key
+Registre.hiv
+
+# Caches do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Arquivos de IDEs comuns
+.vscode/
+.idea/

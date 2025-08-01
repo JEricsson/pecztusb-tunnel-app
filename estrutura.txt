@@ -1,0 +1,17 @@
+pecztusb-tunnel_app/
+│
+├── installer/                # Antiga '3_build', contém o script do Inno Setup
+│   └── install.iss
+│   └── favicon.ico
+│
+├── server/                   # Antiga '1_sources', contém o backend
+│   └── server.py
+│   └── config.json.template
+│
+├── webapp/                   # Antiga '2_app_spectro', contém o frontend
+│   ├── index.html
+│   ├── app.js
+│   └── style.css
+│
+├── .gitignore                # O arquivo de exclusão
+└── README.md                 # A documentação principal do projeto

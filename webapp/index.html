@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeC ZTUB Spectro Console</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-dark bg-dark-subtle border-bottom border-secondary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-shield-shaded"></i>
+                PeC ZTUB Spectro Console
+            </a>
+            <button class="btn btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#settingsModal">
+                <i class="bi bi-gear-fill"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="container-fluid mt-4">
+        <div id="dashboard-grid" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+            <!-- Os cards de status dos alvos serão injetados aqui pelo app.js -->
+        </div>
+    </main>
+
+    <!-- Modal de Configurações (Alvos) -->
+    <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="settingsModalLabel"><i class="bi bi-crosshair"></i> Gerenciador de Alvos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <h6><i class="bi bi-plus-circle"></i> Adicionar/Editar Alvo</h6>
+                            <form id="target-form">
+                                <input type="hidden" id="target-id">
+                                <div class="mb-3">
+                                    <label for="target-name" class="form-label">Nome de Guerra</label>
+                                    <input type="text" class="form-control" id="target-name" placeholder="Ex: Base Alpha" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="target-url" class="form-label">Coordenadas da API</label>
+                                    <input type="url" class="form-control" id="target-url" placeholder="https://servidor.exemplo.com" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="target-description" class="form-label">Descrição Tática</label>
+                                    <textarea class="form-control" id="target-description" rows="2"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100"><i class="bi bi-floppy-fill"></i> Salvar Alvo</button>
+                            </form>
+                        </div>
+                        <div class="col-md-7">
+                            <h6><i class="bi bi-list-task"></i> Alvos Configurados</h6>
+                            <ul id="target-list" class="list-group">
+                                <!-- Lista de alvos será injetada aqui -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal do Arsenal (Ativos) -->
+    <div class="modal fade" id="assetModal" tabindex="-1" aria-labelledby="assetModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="assetModalLabel">Arsenal de Ativos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="asset-table-container" class="table-responsive">
+                       <!-- A tabela de ativos será injetada aqui -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container de Notificações (Toast) -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="notificationToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto" id="toast-title">Notificação</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Fechar"></button>
+            </div>
+            <div class="toast-body" id="toast-body">
+                <!-- Mensagem da notificação -->
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
